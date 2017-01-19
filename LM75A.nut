@@ -34,8 +34,8 @@ class LM75
 
     constructor (_i2c, _addr)
     {
-         i2c = _i2c;
-         addr = _addr;
+        i2c = _i2c;
+        addr = _addr;
     }
 };
 
@@ -63,7 +63,7 @@ function LM75::_register16(reg)
 function LM75::_register16(reg, regdata)
 {
     local msb = (regdata >> 8);
-    local lsb = (regdata);
+    local lsb = (regdata & 0x00ff);
 
     i2c.address(addr);
     i2c.write8(reg);
